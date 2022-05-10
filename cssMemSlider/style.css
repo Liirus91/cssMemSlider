@@ -1,0 +1,134 @@
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: auto;
+  padding: 0;
+}
+.wrapper {
+  max-width: 1024px;
+  height: 100vh;
+  background-color: rgb(43, 43, 43);
+}
+
+.content {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+  animation: 2s show ease;
+}
+
+.img:not(:target) {
+  display: none;
+}
+
+.mem-name {
+  width: auto;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0;
+}
+
+.buttons {
+  width: 18%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  margin-right: 0;
+}
+
+.button-border {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.button {
+  background-color: #63a4ff;
+  border-color: transparent;
+  border-radius: 50%;
+  border-style: solid;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.button-border:hover .button {
+  background-color: #ffffff;
+  border-color: transparent;
+}
+
+#first-mem:target ~ .buttons > div:nth-child(1) > .button,
+#second-mem:target ~ .buttons > div:nth-child(2) > .button,
+#third-mem:target ~ .buttons > div:nth-child(3) > .button,
+#fourth-mem:target ~ .buttons > div:nth-child(4) > .button {
+  background-color: transparent;
+  border-color: #63a4ff;
+  border-width: 2px;
+}
+
+#first-mem:target ~ .buttons > div:nth-child(1):hover > .button,
+#second-mem:target ~ .buttons > div:nth-child(2):hover > .button,
+#third-mem:target ~ .buttons > div:nth-child(3):hover > .button,
+#fourth-mem:target ~ .buttons > div:nth-child(4):hover > .button {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+#first-mem:target ~ .mem-name > p:nth-child(1),
+#second-mem:target ~ .mem-name > p:nth-child(2),
+#third-mem:target ~ .mem-name > p:nth-child(3),
+#fourth-mem:target ~ .mem-name > p:nth-child(4) {
+  color: #ffffff;
+  animation: 2s show ease;
+}
+
+#first-mem:not(:target) ~ .mem-name > p:nth-child(1),
+#second-mem:not(:target) ~ .mem-name > p:nth-child(2),
+#third-mem:not(:target) ~ .mem-name > p:nth-child(3),
+#fourth-mem:not(:target) ~ .mem-name > p:nth-child(4) {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .content {
+    width: 90%;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .img {
+    order: 0;
+  }
+
+  .mem-name {
+    order: 2;
+  }
+
+  .buttons {
+    width: 30%;
+    order: 1;
+    margin-right: auto;
+  }
+}
